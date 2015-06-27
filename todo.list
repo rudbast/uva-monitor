@@ -1,0 +1,17 @@
+1. Request data from web service using affiliated API
+    a) Use available API
+        - Convert username to user-id
+            http://uhunt.felix-halim.net/api/uname2uid/felix_halim
+        - User name, username, rank, no of AC, no of Subs
+            http://uhunt.felix-halim.net/api/ranklist/{user-id}/{nabove}/{nbelow}
+        - [Last] subs id, prob id, verdict id, runtime, subs time, lang id, subs rank
+            http://uhunt.felix-halim.net/api/subs-user-last/{user-id}/{count}
+        - Problem details
+            http://uhunt.felix-halim.net/api/p/id/
+    b) Use jQuery AJAX to get and parse JSON
+
+
+2. Read data into model
+
+
+3. Update DOM view using model's data
