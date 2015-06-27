@@ -20,37 +20,42 @@ class Scoreboard extends CI_Controller {
      */
     public function index() {
         $userlist = array(
-            "bounces",
-            "rud_bast",
             "erhemdiputra",
+            "debora_mlnd",
+            "rud_bast",
+            "bounces",
+            "Caledfwlch",
             "jansonh",
             "FlixHK",
-            "hobert",
             "michaleona",
             "exxe",
             "blueazrael",
             "geralmcz",
+            "Eagle Vision",
             "danieal",
             "Andre_Tirta",
-            "debora_mlnd",
             "CheeseStick",
+            "hobert",
             "Raokiray",
             "D3w1",
-            "Caledfwlch",
             "omg0394",
             "xybil",
-            "Eagle Vision",
             "Adorian",
         );
 
         $infos = array();
-        $workers = array();
+        $rank = array();
+        // $workers = array();
 
         foreach ($userlist as $username) {
             // $worker = new AsyncOperation($username);
             // $infos[] = $worker;
             $infos[] = $this->getInfoByUsername($username);
+            $rank[$username] = end($infos)["rank"];
         }
+
+        // sort data by user's rank
+        array_multisort($rank, SORT_ASC, $infos);
 
         // load view
         $this->load->view('scoreboard', array(
