@@ -5,10 +5,9 @@ api_version: 1
 threadsafe: false
 
 handlers:
-- url: /favicon.ico
+- url: /favicon\.ico
   static_files: /favicon.ico
   upload: /favicon.ico
-  expiration: 30d
 
 - url: /usr_guide
   static_dir: user_guide
