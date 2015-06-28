@@ -8,7 +8,6 @@ class Scoreboard extends CI_Controller {
      */
     public function index() {
         require_once 'UvaTools.php';
-        $this->load->library('table');
 
         $tool = new UvaTools();
         $this->constructTableData($tool->getData());
