@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Local bootstrap -->
     <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css"> -->
-    <link rel="icon" href="<?=base_url()?>/favicon.ico" type="image/ico">
+    <link rel="icon" href="<?=base_url()?>favicon.ico" type="image/ico">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- Optional theme -->
@@ -30,8 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php echo $this->table->generate(); ?>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="/assets/js/moment.min.js" type="text/javascript" charset="utf-8"></script>
     <!-- <script src="assets/js/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script> -->
-    <!-- <script src="assets/js/myscript.js" type="text/javascript" charset="utf-8"></script> -->
+    <script src="assets/js/myscript.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
