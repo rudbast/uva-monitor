@@ -4,50 +4,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Scoreboard extends CI_Controller {
 
     /**
-     * Index Page for this controller.
-     *
-     * Maps to the following URL
-     *      http://example.com/index.php/welcome
-     *  - or -
-     *      http://example.com/index.php/welcome/index
-     *  - or -
-     * Since this controller is set as the default controller in
-     * config/routes.php, it's displayed at http://example.com/
-     *
-     * So any other public methods not prefixed with an underscore will
-     * map to /index.php/welcome/<method_name>
-     * @see http://codeigniter.com/user_guide/general/urls.html
+     * Username list
+     * @var array
+     */
+    private $userlist = array(
+        "erhemdiputra",
+        "debora_mlnd",
+        "rud_bast",
+        "bounces",
+        "Caledfwlch",
+        "jansonh",
+        "FlixHK",
+        "michaleona",
+        "exxe",
+        "blueazrael",
+        "geralmcz",
+        "Eagle Vision",
+        "danieal",
+        "Andre_Tirta",
+        "CheeseStick",
+        "hobert",
+        "Raokiray",
+        "D3w1",
+        "omg0394",
+        "xybil",
+        "Adorian",
+    );
+
+    /**
+     * Index page controller
      */
     public function index() {
-        $userlist = array(
-            "erhemdiputra",
-            "debora_mlnd",
-            "rud_bast",
-            "bounces",
-            "Caledfwlch",
-            "jansonh",
-            "FlixHK",
-            "michaleona",
-            "exxe",
-            "blueazrael",
-            "geralmcz",
-            "Eagle Vision",
-            "danieal",
-            "Andre_Tirta",
-            "CheeseStick",
-            "hobert",
-            "Raokiray",
-            "D3w1",
-            "omg0394",
-            "xybil",
-            "Adorian",
-        );
+        $this->load->library('table');
 
         $infos = array();
         $rank = array();
         // $workers = array();
 
-        foreach ($userlist as $username) {
+        foreach ($this->userlist as $username) {
             // $worker = new AsyncOperation($username);
             // $infos[] = $worker;
             $infos[] = $this->getInfoByUsername($username);
@@ -57,10 +51,38 @@ class Scoreboard extends CI_Controller {
         // sort data by user's rank
         array_multisort($rank, SORT_ASC, $infos);
 
+        $this->constructTableData($infos);
+
         // load view
         $this->load->view('scoreboard', array(
             "infos" => $infos,
+            "table" => $this->table,
         ));
+    }
+
+    /**
+     * Construct table using CI Table Library
+     * @param  array $infos assoc. array containing extracted user informations
+     */
+    public function constructTableData($infos) {
+        $template = array(
+            'table_open' => '<table class="table table-striped table-hover">',
+        );
+        $this->table->set_template($template);
+
+        $this->table->set_heading(
+            "#", "Name", "Username", "Accepted", "No. of Submission", "Rank",
+            // "Last Submission",
+            "Problem", "Verdict", "Date Time"
+        );
+        $i = 1;
+        foreach ($infos as $info) {
+            $data = array($i++);
+            foreach ($info as $key => $value) {
+                $data[] = $value;
+            }
+            $this->table->add_row($data);
+        }
     }
 
     /**

@@ -27,38 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
     <div class="ranklist">
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th rowspan="2">#</th>
-                    <th rowspan="2">Name</th>
-                    <th rowspan="2">Username</th>
-                    <th rowspan="2">Accepted</th>
-                    <th rowspan="2">No of Submission</th>
-                    <th rowspan="2">Rank</th>
-                    <th colspan="3"><center>Last Submission</center></th>
-                </tr>
-                <tr>
-                    <th>Problem</th>
-                    <th>Verdict</th>
-                    <th>Date Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                <div class="userdata">
-                    <!-- Loop goes here Kappa wkwkkwkw -->
-                    <?php $i = 1; ?>
-                    <?php foreach ($infos as $info) { ?>
-                    <tr>
-                        <td><?php echo $i++; ?></td>
-                        <?php foreach ($info as $key => $value) { ?>
-                        <td><?php echo $value; ?></td>
-                        <?php } ?>
-                    </tr>
-                    <?php } ?>
-                </div>
-            </tbody>
-        </table>
+        <?php echo $this->table->generate(); ?>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="/assets/js/moment.min.js" type="text/javascript" charset="utf-8"></script>
