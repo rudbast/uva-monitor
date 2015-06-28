@@ -98,5 +98,5 @@ function getUserInfoByUsername(username) {
 }
 
 $(document).ready(function () {
-    getUserInfoByUsername("rud_bast");
+    // getUserInfoByUsername("rud_bast");
 });
