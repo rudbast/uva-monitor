@@ -67,7 +67,7 @@ function getBaseInfo(userId) {
         var rank = user.rank;
         var name = user.name;
         var totalAccept = user.ac;
-        var totalSubmit = user.nos
+        var totalSubmit = user.nos;
 
         var data = new Array({
             "name": user.name,
@@ -93,7 +93,7 @@ function getUserInfoByUsername(username) {
         var base = getBaseInfo(userId);
         var last = getLastInfo(userId);
 
-        console.log(base["name"] + " " + last["title"]);
+        console.log(base.name + " " + last.title);
     });
 }
 
